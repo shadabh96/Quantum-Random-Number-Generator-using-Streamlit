@@ -144,7 +144,7 @@ if st.sidebar.button("Generate Random Number"):
                         result1.append(microsoft_qrng(minimum, maximum))
                 display_result(result1)
             else:
-                st.markdown(f"<h3 style='text-align: center; color: black;'>Please enter Minimum Random Number to be generated 1 or greater then 1</h3>", unsafe_allow_html=True)
+                st.markdown(f"<h3 style='text-align: center; color: black;'>Please enter Minimum Random Number to be generated 0 or greater then 0</h3>", unsafe_allow_html=True)
         elif quantum_computer == "ANU QRNG":
             display_result(anu_generator(num_rand_numbers, data_type))
 else:
