@@ -4,14 +4,12 @@ Created on Sun Jan 31 01:30:00 2021
 
 @author: ShadabHussain
 """
-import os
 
 import warnings 
 warnings.filterwarnings("ignore")
 import requests
 import streamlit as st
 
-st.write(os.environ['VIRTUAL_ENV'])
 # IBMQ
 from qiskit import QuantumRegister, ClassicalRegister, QuantumCircuit, execute, IBMQ
 from qiskit.tools.monitor import job_monitor
