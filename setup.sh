@@ -15,7 +15,7 @@ sudo apt-get install -y dotnet-runtime-5.0
 
 export PATH="$PATH:$HOME/.dotnet"
 
-dotnet tool update -g Microsoft.Quantum.IQSharp
+dotnet tool install --global Microsoft.Quantum.IQSharp --version 0.15.2101126940
 dotnet iqsharp install
 
 dotnet iqsharp --version
