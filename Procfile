@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlit run streamlit_app_bokeh.py
+web: sh setup.sh && streamlit run qrng_final.py

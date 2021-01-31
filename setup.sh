@@ -5,6 +5,8 @@ sudo apt-get update; \
   sudo apt-get update && \
   sudo apt-get install -y dotnet-sdk-5.0
   
+dotnet-iqsharp install --user --path-to-tool="$(which dotnet-iqsharp)"
+
 
 echo "\
 [general]\n\
