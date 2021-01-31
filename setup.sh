@@ -1,4 +1,5 @@
 mkdir -p ~/.streamlit/
+dotnet --info
 
 conda create -n qsharp-env -c quantum-engineering qsharp notebook
 
