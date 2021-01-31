@@ -1,7 +1,5 @@
 mkdir -p ~/.streamlit/
 
-conda install -c quantum-engineering qsharp
-
 echo "\
 [general]\n\
 email = \"your-email@domain.com\"\n\
