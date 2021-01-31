@@ -4,6 +4,9 @@ Created on Sun Jan 31 01:30:00 2021
 
 @author: ShadabHussain
 """
+import os
+st.write(os.environ['CONDA_DEFAULT_ENV'])
+
 
 import warnings 
 warnings.filterwarnings("ignore")
