@@ -1,3 +1,6 @@
+dotnet tool install -g Microsoft.Quantum.IQSharp
+dotnet iqsharp install
+
 mkdir -p ~/.streamlit/
 
 echo "\
