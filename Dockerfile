@@ -94,7 +94,7 @@ RUN mkdir -p ${HOME}/.nuget/NuGet && \
     echo "Using NuGet.Config:" && \
     cat ${HOME}/.nuget/NuGet/NuGet.Config
 # Add Python and NuGet packages from the build context
-ADD nugets/*.nupkg ${LOCAL_PACKAGES}/nugets/
+ADD nuget/*.nupkg ${LOCAL_PACKAGES}/nugets/
 ADD wheels/*.whl ${LOCAL_PACKAGES}/wheels/
 # Give the notebook user ownership over the packages and config copied from
 # the context.
