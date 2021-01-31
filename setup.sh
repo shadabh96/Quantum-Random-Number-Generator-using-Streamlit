@@ -1,11 +1,10 @@
 mkdir -p ~/.streamlit/
 
-sudo apt-get update; \
-  sudo apt-get install -y apt-transport-https && \
-  sudo apt-get update && \
-  sudo apt-get install -y dotnet-sdk-5.0
-  
-dotnet-iqsharp install --user --path-to-tool="$(which dotnet-iqsharp)"
+dotnet tool install -g Microsoft.Quantum.IQSharp
+dotnet iqsharp install
+
+
+/path/to/dotnet-iqsharp install --user --path-to-tool="/path/to/dotnet-iqsharp"
 
 
 echo "\
