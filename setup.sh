@@ -7,6 +7,10 @@ sudo apt-get update; \
   
 dotnet-iqsharp install --user --path-to-tool="$(which dotnet-iqsharp)"
 
+conda create -n qsharp-env -c quantum-engineering qsharp notebook
+
+conda activate qsharp-env
+
 
 echo "\
 [general]\n\
