@@ -1,11 +1,5 @@
 mkdir -p ~/.streamlit/
 
-dotnet tool install -g Microsoft.Quantum.IQSharp
-dotnet iqsharp install
-
-
-/path/to/dotnet-iqsharp install --user --path-to-tool="/path/to/dotnet-iqsharp"
-
 conda install -c quantum-engineering qsharp
 
 echo "\
