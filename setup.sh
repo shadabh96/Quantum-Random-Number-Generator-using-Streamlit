@@ -1,9 +1,15 @@
 mkdir -p ~/.streamlit/
 
+conda create -n qsharp-env -c quantum-engineering qsharp notebook
+
+conda activate qsharp-env
+
 echo "\
 [general]\n\
 email = \"your-email@domain.com\"\n\
 " > ~/.streamlit/credentials.toml
+
+
 
 echo "\
 [server]\n\
