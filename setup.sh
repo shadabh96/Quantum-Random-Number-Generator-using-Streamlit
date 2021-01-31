@@ -1,9 +1,19 @@
-dotnet tool install -g dotnet-format
+sudo add-apt-repository universe
+sudo apt-get install apt-transport-https
+sudo apt-get update
 
-dotnet tool install -g Microsoft.Quantum.IQSharp
+export PATH="$PATH:$HOME/.dotnet"
 
+dotnet tool update -g Microsoft.Quantum.IQSharp
 dotnet iqsharp install
 
+dotnet iqsharp --version
+
+pip install qsharp --upgrade
+
+python -c "import qsharp; qsharp.reload()"
+
+%workspace reload
 
 mkdir -p ~/.streamlit/
 
