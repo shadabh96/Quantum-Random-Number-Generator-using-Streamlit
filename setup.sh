@@ -6,6 +6,7 @@ dotnet iqsharp install
 
 /path/to/dotnet-iqsharp install --user --path-to-tool="/path/to/dotnet-iqsharp"
 
+conda install -c quantum-engineering qsharp
 
 echo "\
 [general]\n\
