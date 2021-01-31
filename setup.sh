@@ -1,15 +1,15 @@
 mkdir -p ~/.streamlit/
-dotnet --info
 
-conda create -n qsharp-env -c quantum-engineering qsharp notebook
-
-conda activate qsharp-env
+sudo apt-get update; \
+  sudo apt-get install -y apt-transport-https && \
+  sudo apt-get update && \
+  sudo apt-get install -y dotnet-sdk-5.0
+  
 
 echo "\
 [general]\n\
 email = \"your-email@domain.com\"\n\
 " > ~/.streamlit/credentials.toml
-
 
 
 echo "\
