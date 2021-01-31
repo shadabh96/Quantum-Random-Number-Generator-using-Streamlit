@@ -1,4 +1,7 @@
+dotnet tool install -g dotnet-format
+
 dotnet tool install -g Microsoft.Quantum.IQSharp
+
 dotnet iqsharp install
 
 
