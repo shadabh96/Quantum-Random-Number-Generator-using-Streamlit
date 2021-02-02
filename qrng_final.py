@@ -75,21 +75,20 @@ def anu_generator(n, data_type):
 
 
 if quantum_computer == "IBMQ":
-    if quantum_computer == "IBMQ":
-        try:
-            IBMQ.load_account()
-        except Exception as e:
-            st.write(e)
-            api_key = st.sidebar.text_input("Enter IBMQ API Key")
-            IBMQ.save_account(api_key)
-            IBMQ.load_account()
-        provider = IBMQ.get_provider(hub='ibm-q')
-        device = st.sidebar.selectbox("Select Quantum Device", [str(each) for each in provider.backends()])
-        backend = provider.get_backend(device)
-        if device == "ibmq_qasm_simulator":
-            num_q = 32
-        else:
-            num_q = 5
+    try:
+        IBMQ.load_account()
+    except Exception as e:
+        st.write(e)
+        api_key = st.sidebar.text_input("Enter IBMQ API Key")
+        IBMQ.save_account(api_key)
+        IBMQ.load_account()
+    provider = IBMQ.get_provider(hub='ibm-q')
+    device = st.sidebar.selectbox("Select Quantum Device", [str(each) for each in provider.backends()])
+    backend = provider.get_backend(device)
+    if device == "ibmq_qasm_simulator":
+        num_q = 32
+    else:
+        num_q = 5
     minimum = st.sidebar.number_input("Minimum Random Number", value=0)
     maximum = st.sidebar.number_input("Maximum Random Number", min_value=minimum+1, value=minimum+1)
 elif quantum_computer == "ANU QRNG":
