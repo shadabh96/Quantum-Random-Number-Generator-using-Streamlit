@@ -14,15 +14,12 @@ import streamlit as st
 from qiskit import QuantumRegister, ClassicalRegister, QuantumCircuit, execute, IBMQ
 from qiskit.tools.monitor import job_monitor
 
-# Microsoft (Q#) 
-import qsharp
-from QuantumRNG import SampleRandomNumber
 
 st.set_page_config(page_title='QRNG', page_icon=None, layout='centered', initial_sidebar_state='auto')
 
 st.markdown("<h1 style='text-align: center; color: black;'>Quantum Random Number Generator</h1>", unsafe_allow_html=True)
 
-quantum_computer = st.sidebar.selectbox("Select Quantum Computer Type", ['IBMQ', 'Microsoft (Q#)', 'ANU QRNG'])
+quantum_computer = st.sidebar.selectbox("Select Quantum Computer Type", ['IBMQ', 'ANU QRNG'])
 
 subheader = "using "+ quantum_computer
 st.markdown(f"<h1 style='text-align: center; color: black;'>{subheader}</h1>", unsafe_allow_html=True)
@@ -33,10 +30,6 @@ def about(quantum_computer):
         text = "The Australian National University (ANU) offers true random numbers to anyone on the internet. The random numbers are generated in real-time in their lab by measuring the quantum fluctuations of the vacuum."
         link = 'https://qrng.anu.edu.au/contact/api-documentation/'
         link_text = 'For API Documentation'
-    elif quantum_computer == "Microsoft (Q#)":
-        text = "Q# is Microsoft's open-source programming language for developing and running quantum algorithms. It is part of the QDK, a full-featured development kit for Q# that you can use with standard tools and languages to develop quantum applications that you can run in various environments, including the built-in full-state quantum simulator."
-        link = 'https://docs.microsoft.com/en-us/quantum/overview/overview'
-        link_text = 'For Q# Documentation'
     elif quantum_computer == "IBMQ":
         text = "Qiskit is an open source SDK for working with quantum computers at the level of pulses, circuits and application modules. It accelerates the development of quantum applications by providing the complete set of tools needed for interacting with quantum systems and simulators."
         link = 'https://qiskit.org/'
@@ -63,10 +56,6 @@ def ibmq_qrng(minimum, maximum):
     return result1
 
 
-def microsoft_qrng(minimum, maximum):
-    return SampleRandomNumber.simulate(minima=minimum, maxima=maximum)
-
-
 def anu_generator(n, data_type):
     '''
     This function generates n random numbers between 0 and maxnum
@@ -85,7 +74,7 @@ def anu_generator(n, data_type):
 
 
 
-if quantum_computer == "IBMQ" or quantum_computer == "Microsoft (Q#)":
+if quantum_computer == "IBMQ":
     if quantum_computer == "IBMQ":
         try:
             IBMQ.load_account()
@@ -134,17 +123,6 @@ if st.sidebar.button("Generate Random Number"):
                 for i in range(num_rand_numbers):
                     result1.append(ibmq_qrng(minimum, maximum))
             display_result(result1)
-        elif quantum_computer == "Microsoft (Q#)":
-            if minimum >= 0:
-                if num_rand_numbers==1:
-                    result1 = microsoft_qrng(minimum, maximum)
-                else:
-                    result1 = []
-                    for i in range(num_rand_numbers):
-                        result1.append(microsoft_qrng(minimum, maximum))
-                display_result(result1)
-            else:
-                st.markdown(f"<h3 style='text-align: center; color: black;'>Please enter Minimum Random Number to be generated 0 or greater then 0</h3>", unsafe_allow_html=True)
         elif quantum_computer == "ANU QRNG":
             display_result(anu_generator(num_rand_numbers, data_type))
 else:
